@@ -1,0 +1,70 @@
+.message-box {
+    height: 0;
+    display: none;
+    background-color: #EBEBEB;
+    border-radius: 25px 25px 0 0;
+
+    &.show {
+        height: 30%;
+        display: flex;
+    }
+
+    .message-box-form {
+        display: flex;
+        padding: 20px;
+        width: 100%;
+
+        .message-box-inputs {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 90%;
+        }
+
+        .message-box-send {
+            width: 10%;
+            align-self: center;
+            display: flex;
+            height: 100%;
+
+            button {
+                background: none;
+                border: none;
+                height: 50%;
+                width: 50%;
+                margin: auto;
+
+                .message-box-send-img {
+                    height: 100%;
+                    width: 100%;
+                    fill: #232327;
+                    cursor: pointer;
+                    transition: .4s;
+                }
+
+                &:hover {
+
+                    .message-box-send-img {
+                        fill: rgba($color: #26262B, $alpha: 0.7);
+                        transition: .4s;
+                        animation: linear 1.2s sendHover infinite;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes sendHover {
+    33% {
+        transform: translate(6px, -6px);
+    }
+
+    66% {
+        transform: translate(5px, -2px);
+    }
+
+    100% {
+        transform: none;
+    }
+}

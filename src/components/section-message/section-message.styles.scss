@@ -1,0 +1,120 @@
+.section-message:nth-child(odd) {
+    margin: 15px 20px;
+    padding: 15px 25px;
+    background-color: #ebebeb;
+    color: #232327;
+    border-radius: 30px;
+    position: relative;
+    width: 80%;
+
+    .ball-f {
+        width: 35px;
+        height: 35px;
+        border-radius: 20px;
+        background-color: #ebebeb;
+        position: absolute;
+        top: -7px;
+        left: -4px;
+    }
+
+    .ball-s {
+        width: 18px;
+        height: 18px;
+        border-radius: 20px;
+        background-color: #ebebeb;
+        position: absolute;
+        top: -11px;
+        left: -4px;
+    }
+
+    .message-body {
+        display: flex;
+        flex-direction: column;
+
+        .message-author {
+            padding-bottom: 3px;
+            margin-bottom: 6px;
+            border-bottom: solid 1px #232327;
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+
+            .name {
+                font-weight: 700;
+                font-size: 18px;
+            }
+
+            .date {
+                font-size: 14px;
+                font-style: italic;
+            }
+        }
+
+        .message-content {
+            font-weight: 400;
+            white-space: pre-wrap;
+        }
+    }
+}
+
+.section-message:nth-child(even) {
+    margin: 15px 20px;
+    padding: 15px 25px;
+    background-color: #ebebeb;
+    color: #232327;
+    border-radius: 30px;
+    position: relative;
+    width: 80%;
+    align-self: flex-end;
+
+    .ball-f {
+        width: 35px;
+        height: 35px;
+        border-radius: 20px;
+        background-color: #ebebeb;
+        position: absolute;
+        top: -7px;
+        right: -4px;
+    }
+
+    .ball-s {
+        width: 18px;
+        height: 18px;
+        border-radius: 20px;
+        background-color: #ebebeb;
+        position: absolute;
+        top: -11px;
+        right: -4px;
+    }
+
+    .message-body {
+        display: flex;
+        flex-direction: column;
+
+        .message-author {
+            padding-bottom: 3px;
+            margin-bottom: 6px;
+            border-bottom: solid 1px #232327;
+            display: flex;
+            direction: rtl;
+            justify-content: space-between;
+            align-content: center;
+
+            .name {
+                font-weight: 700;
+                font-size: 18px;
+            }
+
+            .date {
+                font-size: 14px;
+                direction: ltr;
+                font-style: italic;
+            }
+        }
+
+        .message-content {
+            font-weight: 400;
+            white-space: pre-wrap;
+        }
+    }
+}

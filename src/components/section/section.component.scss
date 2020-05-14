@@ -1,0 +1,52 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    transform: translateX(-120%);
+    opacity: 0;
+    transition: ease-in 1s;
+    position: absolute;
+
+    &.current-section {
+        transform: none;
+        opacity: 1;
+        animation: ease-out goingOut 1.5s;
+    }
+
+    .section-content {
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+
+        .no-subject {
+            margin: auto;
+            font-style: italic;
+            font-weight: 500;
+        }
+    }
+
+    .section-header {
+        display: flex;
+
+        .section-options {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+@keyframes goingOut {
+    0% {
+        transform: translateX(240%);
+    }
+
+    100% {
+        transform: none;
+    }
+}

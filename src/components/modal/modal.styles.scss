@@ -1,0 +1,13 @@
+.modal {
+    color: #232327;
+
+    .my-modal-body {
+        display: flex;
+        flex-direction: column;
+
+        .my-modal-confirm {
+            margin: 10px 0;
+            align-self: flex-end;
+        }
+    }
+}

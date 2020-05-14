@@ -1,0 +1,17 @@
+.custom-button {
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 18px;
+    border: 1px solid #EBEBEB;
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover {
+        background-color: #EBEBEB;
+        color: #232327;
+        transition: .3s;
+        box-shadow: 0 0 7px rgba($color: #ffffff, $alpha: 0.8),
+                    0 0 10px rgba($color: #ffffff, $alpha: 0.8);
+    }
+}

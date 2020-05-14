@@ -1,0 +1,54 @@
+.floating-button {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    position: absolute;
+    right: 25px;
+    bottom: 20px;
+    border-radius: 50%;
+    background: #f5f7fa;
+    background: -webkit-linear-gradient(40deg, #f5f7fa, #c3cfe2);
+    background: linear-gradient(40deg, #f5f7fa, #c3cfe2);
+    -webkit-box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.7);
+    -moz-box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.7);
+    box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.7);
+    cursor: pointer;
+
+    .floating-button-image {
+        margin: auto;
+        width: 53%;
+        height: 53%;
+        fill: rgba($color: #26262B, $alpha: 0.9);
+    }
+
+    &:hover {
+        animation: ease-in-out 2s onHoverFloatingButton infinite;
+    }
+}
+
+@keyframes onHoverFloatingButton {
+    25% {
+        transform: scale(1.15);
+    }
+
+    47% {
+        box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.7), 0 0 0 8px rgba($color: #ffffff, $alpha: 0.05);
+    }
+
+    50% {
+        transform: none;
+        box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.7), 0 0 0 8px rgba($color: #ffffff, $alpha: 0.05), 0 0 0 12px rgba($color: #ffffff, $alpha: 0.05);
+    }
+
+    55% {
+        box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.7), 0 0 0 8px rgba($color: #ffffff, $alpha: 0.05), 0 0 0 12px rgba($color: #ffffff, $alpha: 0.05), 0 0 0 18px rgba($color: #ffffff, $alpha: 0.05);
+    }
+
+    60% {
+        box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.7), 0 0 0 8px rgba($color: #ffffff, $alpha: 0.05), 0 0 0 12px rgba($color: #ffffff, $alpha: 0.05), 0 0 0 18px rgba($color: #ffffff, $alpha: 0.05);
+    }
+
+    100% {
+        box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.7);
+    }
+}

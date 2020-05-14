@@ -1,0 +1,46 @@
+.section-body-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px white;
+    padding-bottom: 6px;
+    margin-bottom: 30px;
+
+    .section-body-header-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        .title {
+            font-size: 30px;
+            font-weight: 900;
+        }
+
+        .created-at {
+            font-style: italic;
+        }
+
+        .updated-at {
+            font-style: italic;
+        }
+
+        .last-at {
+            font-style: italic;
+        }
+
+    }
+
+    .section-body-state {
+        padding: 10px;
+        background-color: #232327;
+        align-self: flex-start;
+
+        &.finished {
+            color: greenyellow;
+            border: solid 1px greenyellow;
+        }
+
+        &.in-progress {
+            color: orange;
+            border: solid 1px orange;
+        }
+    }
+}

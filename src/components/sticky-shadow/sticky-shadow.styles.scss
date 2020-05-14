@@ -1,0 +1,9 @@
+.sticky-shadow {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 900;
+    -webkit-box-shadow: 0px -1px 17px 17px rgba(38,38,43,0.99);
+    -moz-box-shadow: 0px -1px 17px 17px rgba(38,38,43,0.99);
+    box-shadow: 0px -1px 17px 17px rgba(38,38,43,0.99);
+}
