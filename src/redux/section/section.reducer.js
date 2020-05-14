@@ -1,7 +1,7 @@
 import SectionTypes from './section.types';
 
 const INITIAL_STATE = {
-    currentSection: 'brainstorming',
+    currentSection: 'portfolio',
 }
 
 const sectionReducer = (state = INITIAL_STATE, action) => {

@@ -11,9 +11,9 @@ const Header = () => (
             <Logo className="logo" />
         </div>
         <div className="options">
-            <OptionItem key='1' section="brainstorming">BRAINSTORMING</OptionItem>
             <OptionItem key='2' section="portfolio">PORTFOLIO</OptionItem>
             <OptionItem key='3' section="notes">NOTES</OptionItem>
+            <OptionItem key='1' section="brainstorming">BRAINSTORMING</OptionItem>
             <OptionItem key='4' section="contact">ME CONTACTER</OptionItem>
         </div>
     </div>
