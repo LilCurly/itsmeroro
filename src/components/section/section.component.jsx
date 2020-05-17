@@ -67,7 +67,7 @@ class Section extends React.Component {
                     </div>
                     <BrainstormingModal show={isBrainstormingModalOpen} onHide={toggleBrainstormingModal} />
                     <PortfolioModal show={isPortfolioModalOpen} onHide={togglePortfolioModal} />
-                    <NotesModal show={isNotesModalOpen} onHide={toggleNotesModal} />
+                    <NotesModal key="notes-modal-create" show={isNotesModalOpen} onHide={toggleNotesModal} />
                 </div>
                 {
                     type !== 'contact' ?

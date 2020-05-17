@@ -23,9 +23,9 @@ const SectionBody = ({ type, isMessageModalOpen, toggleMessageModal, currentBrai
         <div className="section-body-box">
             {
                 {
-                    'brainstorming': <SectionBodyHeader type={type} item={currentBrainstorming} />,
-                    'portfolio': <SectionBodyHeader type={type} item={currentPortfolioItem} />,
-                    'notes': <SectionBodyHeader type={type} item={currentNoteItem} />
+                    'brainstorming': <SectionBodyHeader key="brainstorming" type={type} item={currentBrainstorming} />,
+                    'portfolio': <SectionBodyHeader key="portfolio" type={type} item={currentPortfolioItem} />,
+                    'notes': <SectionBodyHeader key="note" type={type} item={currentNoteItem} />
                 }[type]
             }
             

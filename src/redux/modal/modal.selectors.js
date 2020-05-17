@@ -21,3 +21,13 @@ export const selectNotesState = createSelector(
     [selectModal],
     modal => modal.notes
 )
+
+export const selectNotesModifyState = createSelector(
+    [selectModal],
+    modal => modal.notesModify
+)
+
+export const selectPortfolioModifyState = createSelector(
+    [selectModal],
+    modal => modal.portfolioModify
+)

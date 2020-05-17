@@ -15,3 +15,11 @@ export const togglePortfolioModal = () => ({
 export const toggleNotesModal = () => ({
     type: ModalTypes.TOGGLE_NOTES_MODAL
 })
+
+export const toggleNotesModify = () => ({
+    type: ModalTypes.TOGGLE_NOTES_MODIFY
+})
+
+export const togglePortfolioModify = () => ({
+    type: ModalTypes.TOGGLE_PORTFOLIO_MODIFY
+})

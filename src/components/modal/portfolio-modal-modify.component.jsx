@@ -5,12 +5,11 @@ import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { createNewNotesItem } from '../../repository/firebase/firebase.utils';
-
 import './modal.styles.scss';
-import { selectCurrentNote } from '../../redux/notes/notes.selectors';
+import { updatePortfolioItem } from '../../repository/firebase/firebase.utils';
+import { selectCurrentItem } from '../../redux/portfolio/portfolio.selectors';
 
-class NotesModal extends React.Component {
+class PortfolioModalModify extends React.Component {
 
     constructor(props) {
         super(props);
@@ -19,11 +18,26 @@ class NotesModal extends React.Component {
         this.state = {
             title: '',
             content: '',
+            imageUrl: '',
+            finished: '',
+            createdAt: '',
+            sortBy: '',
+            id: ''
         }
     }
 
-    componentWillUpdate(props) {
-        
+    componentWillReceiveProps(props) {
+        if (this.props.currentPortfolio) {
+            this.setState({
+                title: props.currentPortfolio.title,
+                content: props.currentPortfolio.content,
+                imageUrl: props.currentPortfolio.imageUrl,
+                finished: props.currentPortfolio.finished ? "oui" : "non",
+                createdAt: props.currentPortfolio.createdAt,
+                sortBy: props.currentPortfolio.sortBy,
+                id: props.currentPortfolio.id
+            })
+        }
     }
 
     handleSubmit = event => {
@@ -41,12 +55,8 @@ class NotesModal extends React.Component {
             return;
         }
         
-        createNewNotesItem(this.state)
+        updatePortfolioItem(this.state)
 
-        this.setState({
-            title: '',
-            content: '',
-        })
         this.props.onHide();
     }
 
@@ -72,6 +82,17 @@ class NotesModal extends React.Component {
                         <Form.Group controlId="formBasicContent">
                             <Form.Control name="content" placeholder="Contenu" as="textarea" rows="10" onChange={this.handleChange} value={this.state.content} required  />
                         </Form.Group>
+                        <Form.Group controlId="formBasicName">
+                            <Form.Control name="imageUrl" placeholder="image" onChange={this.handleChange} value={this.state.imageUrl} />
+                        </Form.Group>
+                        <Form.Group controlId="formBasicFinished">
+                            <Form.Control
+                                name="finished"
+                                placeholder="fini ?"
+                                value={this.state.finished}
+                                onChange={this.handleChange}
+                            />
+                        </Form.Group>
                         <Button className="my-modal-confirm" variant="primary" type="submit">Envoyer</Button>
                     </Form>
                 </Modal.Body>
@@ -82,7 +103,7 @@ class NotesModal extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-    currentNote: selectCurrentNote
+    currentPortfolio: selectCurrentItem
 })
 
-export default connect(mapStateToProps)(NotesModal);
+export default connect(mapStateToProps)(PortfolioModalModify);

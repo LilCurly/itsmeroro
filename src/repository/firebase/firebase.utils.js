@@ -32,6 +32,20 @@ export const createNewPortfolioItem = ({ title, content, imageUrl, finished }) =
     })
 }
 
+export const updatePortfolioItem = ({ title, content, id, createdAt, sortBy, imageUrl, finished }) => {
+    const date = new Date();
+
+    firestore.collection("portfolio").doc(id).set({
+        title: title,
+        content: content,
+        updatedAt: `${date.toLocaleDateString("fr-FR")} à ${date.toLocaleTimeString("fr-FR")}`,
+        createdAt: createdAt,
+        sortBy: sortBy,
+        imageUrl: imageUrl,
+        finished: finished === "oui" ? true : false
+    })
+}
+
 export const createNewNotesItem = ({ title, content }) => {
     const date = new Date();
 
@@ -41,6 +55,18 @@ export const createNewNotesItem = ({ title, content }) => {
         createdAt: `${date.toLocaleDateString("fr-FR")} à ${date.toLocaleTimeString("fr-FR")}`,
         updatedAt: `${date.toLocaleDateString("fr-FR")} à ${date.toLocaleTimeString("fr-FR")}`,
         sortBy: date
+    })
+}
+
+export const updateNotesItems = ({ title, content, id, createdAt, sortBy }) => {
+    const date = new Date();
+
+    firestore.collection("notes").doc(id).set({
+        title: title,
+        content: content,
+        updatedAt: `${date.toLocaleDateString("fr-FR")} à ${date.toLocaleTimeString("fr-FR")}`,
+        createdAt: createdAt,
+        sortBy: sortBy
     })
 }
 
@@ -115,7 +141,7 @@ export const convertPortfolioSnapshotToMap = (collections) => {
     })
 
     const transformedCollection = sortedCollections.map(doc => {
-        const { title, content, createdAt, finished, imageUrl, updatedAt } = doc.data();
+        const { title, content, createdAt, finished, imageUrl, updatedAt, sortBy } = doc.data();
 
         return {
             id: doc.id,
@@ -124,7 +150,8 @@ export const convertPortfolioSnapshotToMap = (collections) => {
             createdAt,
             updatedAt,
             imageUrl,
-            finished: finished === "oui" ? true : false
+            finished: finished === "oui" ? true : false,
+            sortBy
         };
     });
 
@@ -140,14 +167,15 @@ export const convertNotesSnapshotToMap = (collections) => {
     })
 
     const transformedCollection = sortedCollections.map(doc => {
-        const { title, content, createdAt, updatedAt } = doc.data();
+        const { title, content, createdAt, updatedAt, sortBy } = doc.data();
 
         return {
             id: doc.id,
             title,
             content,
             createdAt,
-            updatedAt
+            updatedAt,
+            sortBy
         }
     })
 

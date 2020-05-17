@@ -5,25 +5,35 @@ import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { createNewNotesItem } from '../../repository/firebase/firebase.utils';
+import { updateNotesItems } from '../../repository/firebase/firebase.utils';
 
 import './modal.styles.scss';
 import { selectCurrentNote } from '../../redux/notes/notes.selectors';
 
-class NotesModal extends React.Component {
+class NotesModalModify extends React.Component {
 
     constructor(props) {
         super(props);
-
         
         this.state = {
             title: '',
             content: '',
+            id: '',
+            createdAt: '',
+            sortBy: ''
         }
     }
 
-    componentWillUpdate(props) {
-        
+    componentWillReceiveProps(props) {
+        if (this.props.currentNote) {
+            this.setState({
+                title: props.currentNote.title,
+                content: props.currentNote.content,
+                id: props.currentNote.id,
+                createdAt: props.currentNote.createdAt,
+                sortBy: props.currentNote.sortBy
+            })
+        }
     }
 
     handleSubmit = event => {
@@ -41,18 +51,14 @@ class NotesModal extends React.Component {
             return;
         }
         
-        createNewNotesItem(this.state)
+        updateNotesItems(this.state)
 
-        this.setState({
-            title: '',
-            content: '',
-        })
         this.props.onHide();
     }
 
     handleChange = event => {
         const { value, name } = event.target;
-        
+
         this.setState({ [name]: value });
     }
 
@@ -72,7 +78,7 @@ class NotesModal extends React.Component {
                         <Form.Group controlId="formBasicContent">
                             <Form.Control name="content" placeholder="Contenu" as="textarea" rows="10" onChange={this.handleChange} value={this.state.content} required  />
                         </Form.Group>
-                        <Button className="my-modal-confirm" variant="primary" type="submit">Envoyer</Button>
+                        <Button className="my-modal-confirm" variant="primary" type="submit">Modifier</Button>
                     </Form>
                 </Modal.Body>
             </Modal>
@@ -85,4 +91,4 @@ const mapStateToProps = createStructuredSelector({
     currentNote: selectCurrentNote
 })
 
-export default connect(mapStateToProps)(NotesModal);
+export default connect(mapStateToProps)(NotesModalModify);

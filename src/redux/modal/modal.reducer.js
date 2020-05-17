@@ -4,7 +4,9 @@ const INITIAL_STATE = {
     createBrainstorming: false,
     sendMessage: false,
     portfolio: false,
-    notes: false
+    notes: false,
+    notesModify: false,
+    portfolioModify: false
 }
 
 const ModalReducer = (state = INITIAL_STATE, action) => {
@@ -28,6 +30,16 @@ const ModalReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 notes: !state.notes
+            }
+        case ModalTypes.TOGGLE_NOTES_MODIFY:
+            return {
+                ...state,
+                notesModify: !state.notesModify
+            }
+        case ModalTypes.TOGGLE_PORTFOLIO_MODIFY:
+            return {
+                ...state,
+                portfolioModify: !state.portfolioModify
             }
         default:
             return state;
