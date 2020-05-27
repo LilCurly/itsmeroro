@@ -3,6 +3,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    flex-shrink: 0;
 
     .logo-container {
         width: 130px;

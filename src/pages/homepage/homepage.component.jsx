@@ -10,10 +10,10 @@ import './homepage.styles.scss';
 const HomePage = ({ currentSection }) => (
     <div className="homepage-container">
         <div className="homepage">
-            <Section type="portfolio" currentSection={currentSection === 'portfolio' ? true : false} />
-            <Section type="brainstorming" currentSection={currentSection === 'brainstorming' ? true : false} />
-            <Section type="notes" currentSection={currentSection === 'notes' ? true : false} />
-            <Section type="contact" currentSection={currentSection === 'contact' ? true : false} />
+            <Section key="portfolio" type="portfolio" currentSection={currentSection === 'portfolio' ? true : false} />
+            <Section key="brainstorming" type="brainstorming" currentSection={currentSection === 'brainstorming' ? true : false} />
+            <Section key="notes" type="notes" currentSection={currentSection === 'notes' ? true : false} />
+            <Section key="contact" type="contact" currentSection={currentSection === 'contact' ? true : false} />
         </div>
     </div>
     
